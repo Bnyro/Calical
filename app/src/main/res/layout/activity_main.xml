@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="28dp"
+        app:strokeWidth="0dp"
+        android:backgroundTint="?attr/colorSecondaryContainer"
+        app:layout_constraintBottom_toTopOf="@+id/calcMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:autofillHints="false"
+                android:background="@null"
+                android:maxLines="1"
+                android:inputType="number"
+                android:textAlignment="textEnd"
+                android:textSize="70sp" />
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:inputType="number"
+                android:maxLines="1"
+                android:layout_gravity="end"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TableLayout
+        android:id="@+id/calcMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="1dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/percentBTN"
+                style="@style/OuterButton"
+                android:onClick="percentBTN"
+                android:text="@string/percent" />
+
+            <Button
+                android:id="@+id/squareRootBTN"
+                style="@style/OuterButton"
+                android:onClick="squareRootBTN"
+                android:text="@string/squareRoot" />
+
+            <Button
+                android:id="@+id/exponentBTN"
+                style="@style/OuterButton"
+                android:onClick="exponentBTN"
+                android:text="@string/exponent" />
+
+            <Button
+                android:id="@+id/clearBTN"
+                style="@style/OuterButton"
+                android:onClick="clearBTN"
+                android:text="@string/clear" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/sevenBTN"
+                style="@style/RoundedButton"
+                android:onClick="sevenBTN"
+                android:text="@string/seven" />
+
+            <Button
+                android:id="@+id/eightBTN"
+                style="@style/RoundedButton"
+                android:onClick="eightBTN"
+                android:text="@string/eight" />
+
+            <Button
+                android:id="@+id/nineBTN"
+                style="@style/RoundedButton"
+                android:onClick="nineBTN"
+                android:text="@string/nine" />
+
+            <Button
+                android:id="@+id/divideBTN"
+                style="@style/OuterButton"
+                android:onClick="divideBTN"
+                android:text="@string/divide" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/fourBTN"
+                style="@style/RoundedButton"
+                android:onClick="fourBTN"
+                android:text="@string/four" />
+
+            <Button
+                android:id="@+id/fiveBTN"
+                style="@style/RoundedButton"
+                android:onClick="fiveBTN"
+                android:text="@string/five" />
+
+            <Button
+                android:id="@+id/sixBTN"
+                style="@style/RoundedButton"
+                android:onClick="sixBTN"
+                android:text="@string/six" />
+
+            <Button
+                android:id="@+id/multiplyBTN"
+                style="@style/OuterButton"
+                android:onClick="multiplyBTN"
+                android:text="@string/multiply" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/oneBTN"
+                style="@style/RoundedButton"
+                android:onClick="oneBTN"
+                android:text="@string/one" />
+
+            <Button
+                android:id="@+id/twoBTN"
+                style="@style/RoundedButton"
+                android:onClick="twoBTN"
+                android:text="@string/two" />
+
+            <Button
+                android:id="@+id/threeBTN"
+                style="@style/RoundedButton"
+                android:onClick="threeBTN"
+                android:text="@string/three" />
+
+            <Button
+                android:id="@+id/subtactBTN"
+                style="@style/OuterButton"
+                android:onClick="subtractBTN"
+                android:text="@string/subtract" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/pointBTN"
+                style="@style/RoundedButton"
+                android:onClick="pointBTN"
+                android:text="@string/point" />
+
+            <Button
+                android:id="@+id/zeroBTN"
+                style="@style/RoundedButton"
+                android:onClick="zeroBTN"
+                android:text="@string/zero" />
+
+            <Button
+                android:id="@+id/equalsBTN"
+                style="@style/EqualsButton"
+                android:onClick="equalsBTN"
+                android:text="@string/equals" />
+
+            <Button
+                android:id="@+id/addBTN"
+                style="@style/OuterButton"
+                android:onClick="addBTN"
+                android:text="@string/add" />
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
