@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/shape"
+        style="@style/CustomCardCorners"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="10dp"
-        app:cardCornerRadius="28dp"
-        app:strokeWidth="0dp"
+        android:layout_weight="1"
         android:backgroundTint="?attr/colorSecondaryContainer"
-        app:layout_constraintBottom_toTopOf="@+id/calcMain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="80dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:orientation="vertical">
@@ -33,8 +31,8 @@
                 android:layout_gravity="end"
                 android:autofillHints="false"
                 android:background="@null"
-                android:maxLines="1"
                 android:inputType="number"
+                android:maxLines="1"
                 android:textAlignment="textEnd"
                 android:textSize="70sp" />
 
@@ -42,45 +40,158 @@
                 android:id="@+id/result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="40sp"
+                android:layout_gravity="end"
                 android:inputType="number"
                 android:maxLines="1"
-                android:layout_gravity="end"/>
+                android:textSize="40sp" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp" >
+
+        <TableLayout
+            android:id="@+id/calcAdvanced"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="90"
+            android:layout_marginRight="10dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/squareRootBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="squareRootBTN"
+                    android:text="@string/squareRoot" />
+
+                <Button
+                    android:id="@+id/piBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="piBTN"
+                    android:text="@string/pi" />
+
+                <Button
+                    android:id="@+id/exponentBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="exponentBTN"
+                    android:text="@string/exponent" />
+
+                <Button
+                    android:id="@+id/facultyBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="facultyBTN"
+                    android:text="@string/faculty" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/invBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="invBTN"
+                    android:text="@string/inv" />
+
+                <Button
+                    android:id="@+id/sinBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="sinBTN"
+                    android:text="@string/sin" />
+
+                <Button
+                    android:id="@+id/cosBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="cosBTN"
+                    android:text="@string/cos" />
+
+                <Button
+                    android:id="@+id/tanBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="tanBTN"
+                    android:text="@string/tan" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/absBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="absBTN"
+                    android:text="@string/abs" />
+
+                <Button
+                    android:id="@+id/eBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="eBTN"
+                    android:text="@string/e" />
+
+                <Button
+                    android:id="@+id/lnBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="lnBTN"
+                    android:text="@string/ln" />
+
+                <Button
+                    android:id="@+id/logBTN"
+                    style="@style/AdvancedButton"
+                    android:onClick="logBTN"
+                    android:text="@string/log" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/arrowTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="⌄"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="20sp"
+            android:scaleX="1.8"/>
+
+    </LinearLayout>
+
     <TableLayout
         android:id="@+id/calcMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="1dp">
+        android:layout_margin="4dp">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
+                android:id="@+id/parOpenBTN"
+                style="@style/OuterButton"
+                android:onClick="parOpenBTN"
+                android:text="@string/parOpen" />
+
+            <Button
+                android:id="@+id/parClosedBTN"
+                style="@style/OuterButton"
+                android:onClick="parClosedBTN"
+                android:text="@string/parClosed" />
+
+            <Button
                 android:id="@+id/percentBTN"
                 style="@style/OuterButton"
                 android:onClick="percentBTN"
                 android:text="@string/percent" />
-
-            <Button
-                android:id="@+id/squareRootBTN"
-                style="@style/OuterButton"
-                android:onClick="squareRootBTN"
-                android:text="@string/squareRoot" />
-
-            <Button
-                android:id="@+id/exponentBTN"
-                style="@style/OuterButton"
-                android:onClick="exponentBTN"
-                android:text="@string/exponent" />
 
             <Button
                 android:id="@+id/clearBTN"
@@ -210,4 +321,4 @@
         </TableRow>
     </TableLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

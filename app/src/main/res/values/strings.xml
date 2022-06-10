@@ -24,26 +24,22 @@
     <string name="point">.</string>
     <string name="back">⬉</string>
     <string name="equals">=</string>
+    <string name="faculty">!</string>
 
     <string name="percent">%</string>
-    <string name="parantheses">( )</string>
+    <string name="par">( )</string>
     <string name="parOpen">(</string>
     <string name="parClosed">)</string>
 
     <string name="sin">sin</string>
     <string name="cos">cos</string>
     <string name="tan">tan</string>
-    <string name="arcSin">sin<sup><small>-1</small></sup></string>
-    <string name="arcCos">cos<sup><small>-1</small></sup></string>
-    <string name="arcTan">tan<sup><small>-1</small></sup></string>
-    <string name="naturalLog">ln</string>
+    <string name="ln">ln</string>
     <string name="log">log</string>
     <string name="squareRoot">√</string>
     <string name="pi">π</string>
     <string name="e">e</string>
-    <string name="absoluteValue">|x|</string>
-    <string name="isPrime">prime</string>
-    <string name="xSquared">x<sup><small>2</small></sup></string>
-    <string name="xPowerY">x<sup><small>y</small></sup></string>
+    <string name="abs">|x|</string>
+    <string name="inv">INV</string>
 
 </resources>

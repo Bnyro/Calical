@@ -17,9 +17,16 @@ class MainActivity : AppCompatActivity() {
         DynamicColors.applyToActivityIfAvailable(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         editText = findViewById(R.id.input)
-        editText?.showSoftInputOnFocus = false
         resultTextView = findViewById(R.id.result)
+        val arrowTextView = findViewById<TextView>(R.id.arrowTextView)
+
+        arrowTextView.setOnClickListener { _ ->
+
+        }
+
+        editText?.showSoftInputOnFocus = false
     }
 
     private fun updateText(strToAdd: String) {
@@ -48,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun backspaceBTN(view: View?) {
+    fun deleteBTN(view: View?) {
         val cursorPos = editText!!.selectionStart
         val textLen = editText!!.text.length
         if (cursorPos != 0 && textLen != 0) {
@@ -56,15 +63,17 @@ class MainActivity : AppCompatActivity() {
             selection.replace(cursorPos - 1, cursorPos, "")
             editText!!.text = selection
             editText!!.setSelection(cursorPos - 1)
+            val resultString = result
+            resultTextView?.text = if (resultString != "NaN") resultString else ""
         }
     }
 
     private val result: String
-        private get() {
+        get() {
             val userExp = editText!!.text.toString()
             val exp = Expression(userExp)
             val result: Double = exp.calculate()
-            var resultString = java.lang.Double.toString(result)
+            var resultString = result.toString()
             if (resultString.endsWith(".0")) resultString =
                 resultString.substring(0, resultString.length - 2)
             return resultString
@@ -73,6 +82,14 @@ class MainActivity : AppCompatActivity() {
     fun clearBTN(view: View?) {
         editText!!.setText("")
         resultTextView!!.text = ""
+    }
+
+    fun countChar(str: String, c: Char): Int {
+        var count = 0
+        for (element in str) {
+            if (element == c) count++
+        }
+        return count
     }
 
     // default buttons
@@ -149,6 +166,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     // advanced buttons
+    fun parBTN(view: View?) {
+        val currentInput = editText?.text.toString()
+        if (countChar(currentInput, "(".first()) > countChar(currentInput, ")".first())) {
+            updateText(")")
+        } else {
+            updateText("(")
+        }
+    }
+
     fun parOpenBTN(view: View?) {
         updateText("(")
     }
@@ -169,23 +195,11 @@ class MainActivity : AppCompatActivity() {
         updateText("tan(")
     }
 
-    fun arcSinBTN(view: View?) {
-        updateText("arcsin(")
-    }
-
-    fun arcCosBTN(view: View?) {
-        updateText("arccos(")
-    }
-
-    fun arcTanBTN(view: View?) {
-        updateText("arctan(")
-    }
-
     fun logBTN(view: View?) {
         updateText("log10(")
     }
 
-    fun naturalLogBTN(view: View?) {
+    fun lnBTN(view: View?) {
         updateText("ln(")
     }
 
@@ -197,19 +211,15 @@ class MainActivity : AppCompatActivity() {
         updateText("pi")
     }
 
-    fun absoluteValueBTN(view: View?) {
+    fun facultyBTN(view: View?) {
+        updateText("!")
+    }
+
+    fun invBTN(view: View?) {
+
+    }
+
+    fun absBTN(view: View?) {
         updateText("abs(")
-    }
-
-    fun isPrimeBTN(view: View?) {
-        updateText("ispr(")
-    }
-
-    fun xSquaredBTN(view: View?) {
-        updateText("^(2)")
-    }
-
-    fun xPowerYBTN(view: View?) {
-        updateText("^(")
     }
 }
