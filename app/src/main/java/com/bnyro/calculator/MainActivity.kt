@@ -3,49 +3,47 @@ package com.bnyro.calculator
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bnyro.calculator.databinding.ActivityMainBinding
 import com.google.android.material.color.DynamicColors
 import org.mariuszgromada.math.mxparser.Expression
 
 class MainActivity : AppCompatActivity() {
-    private var editText: EditText? = null
-    private var resultTextView: TextView? = null
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         DynamicColors.applyToActivityIfAvailable(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        editText = findViewById(R.id.input)
-        resultTextView = findViewById(R.id.result)
-        val arrowTextView = findViewById<TextView>(R.id.arrowTextView)
-
-        arrowTextView.setOnClickListener { _ ->
-
+        binding.arrow.setOnClickListener { _ ->
+            binding.advancedSecondRow.visibility = View.VISIBLE
+            binding.advancedThirdRow.visibility = View.VISIBLE
         }
 
-        editText?.showSoftInputOnFocus = false
+        binding.input.showSoftInputOnFocus = false
     }
 
     private fun updateText(strToAdd: String) {
-        val oldStr = editText!!.text.toString()
-        val cursorPos = editText!!.selectionStart
+        val oldStr = binding.input.text.toString()
+        val cursorPos = binding.input.selectionStart
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
-        editText!!.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr))
-        editText!!.setSelection(cursorPos + strToAdd.length)
+        binding.input.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr))
+        binding.input.setSelection(cursorPos + strToAdd.length)
         val resultString = result
-        if (resultString != "NaN") resultTextView!!.text = resultString
+        if (resultString != "NaN") binding.result.text = resultString
     }
 
     fun equalsBTN(view: View?) {
         val resultString = result
         if (resultString != "NaN") {
-            editText!!.setText(resultString)
-            editText!!.setSelection(resultString.length)
-            resultTextView!!.text = ""
+            binding.input.setText(resultString)
+            binding.input.setSelection(resultString.length)
+            binding.result.text = ""
         } else {
             Toast.makeText(
                 applicationContext,
@@ -56,21 +54,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun deleteBTN(view: View?) {
-        val cursorPos = editText!!.selectionStart
-        val textLen = editText!!.text.length
+        val cursorPos = binding.input.selectionStart
+        val textLen = binding.input.text.length
         if (cursorPos != 0 && textLen != 0) {
-            val selection = editText!!.text as SpannableStringBuilder
+            val selection = binding.input.text as SpannableStringBuilder
             selection.replace(cursorPos - 1, cursorPos, "")
-            editText!!.text = selection
-            editText!!.setSelection(cursorPos - 1)
+            binding.input.text = selection
+            binding.input.setSelection(cursorPos - 1)
             val resultString = result
-            resultTextView?.text = if (resultString != "NaN") resultString else ""
+            binding.result.text = if (resultString != "NaN") resultString else ""
         }
     }
 
     private val result: String
         get() {
-            val userExp = editText!!.text.toString()
+            val userExp = binding.input.text.toString()
             val exp = Expression(userExp)
             val result: Double = exp.calculate()
             var resultString = result.toString()
@@ -80,11 +78,11 @@ class MainActivity : AppCompatActivity() {
         }
 
     fun clearBTN(view: View?) {
-        editText!!.setText("")
-        resultTextView!!.text = ""
+        binding.input.setText("")
+        binding.result.text = ""
     }
 
-    fun countChar(str: String, c: Char): Int {
+    private fun countChar(str: String, c: Char): Int {
         var count = 0
         for (element in str) {
             if (element == c) count++
@@ -167,7 +165,7 @@ class MainActivity : AppCompatActivity() {
 
     // advanced buttons
     fun parBTN(view: View?) {
-        val currentInput = editText?.text.toString()
+        val currentInput = binding.input.text.toString()
         if (countChar(currentInput, "(".first()) > countChar(currentInput, ")".first())) {
             updateText(")")
         } else {
@@ -216,7 +214,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun invBTN(view: View?) {
-
     }
 
     fun absBTN(view: View?) {

@@ -43,7 +43,8 @@
                 android:layout_gravity="end"
                 android:inputType="number"
                 android:maxLines="1"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                tools:ignore="TextViewEdits" />
 
         </LinearLayout>
 
@@ -56,12 +57,13 @@
 
         <TableLayout
             android:id="@+id/calcAdvanced"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="90"
-            android:layout_marginRight="10dp">
+            android:layout_marginEnd="10dp">
 
             <TableRow
+                android:id="@+id/advancedFirstRow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -92,8 +94,10 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/advancedSecondRow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/invBTN"
@@ -122,8 +126,10 @@
 
 
             <TableRow
+                android:id="@+id/advancedThirdRow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/absBTN"
@@ -153,12 +159,12 @@
         </TableLayout>
 
         <TextView
-            android:id="@+id/arrowTextView"
+            android:id="@+id/arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="5dp"
-            android:text="⌄"
+            android:text="@string/arrow_down"
             android:textColor="?attr/colorPrimary"
             android:textSize="20sp"
             android:scaleX="1.8"/>
@@ -284,7 +290,7 @@
                 android:text="@string/three" />
 
             <Button
-                android:id="@+id/subtactBTN"
+                android:id="@+id/subtractBTN"
                 style="@style/OuterButton"
                 android:onClick="subtractBTN"
                 android:text="@string/subtract" />
