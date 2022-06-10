@@ -19,12 +19,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/input"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:autofillHints="false"
@@ -32,13 +33,14 @@
                 android:inputType="number"
                 android:maxLines="1"
                 android:textAlignment="textEnd"
-                android:textSize="60sp" />
+                android:textSize="60dp" />
 
             <TextView
                 android:id="@+id/result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginBottom="30dp"
                 android:inputType="number"
                 android:maxLines="1"
                 android:textSize="40sp"
@@ -51,15 +53,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp" >
+        android:layout_margin="4dp">
 
         <LinearLayout
             android:id="@+id/calcAdvanced"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="90"
-            android:layout_marginEnd="10dp">
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/advancedFirstRow"
@@ -93,64 +95,102 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/advancedSecondRow"
+                android:id="@+id/calcToggle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/invBTN"
-                    style="@style/AdvancedButton"
-                    android:onClick="invBTN"
-                    android:text="@string/inv" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/trigonometric">
 
-                <TextView
-                    android:id="@+id/sinBTN"
-                    style="@style/AdvancedButton"
-                    android:onClick="sinBTN"
-                    android:text="@string/sin" />
+                    <TextView
+                        android:id="@+id/invBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="invBTN"
+                        android:text="@string/inv" />
 
-                <TextView
-                    android:id="@+id/cosBTN"
-                    style="@style/AdvancedButton"
-                    android:onClick="cosBTN"
-                    android:text="@string/cos" />
+                    <TextView
+                        android:id="@+id/sinBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="sinBTN"
+                        android:text="@string/sin" />
 
-                <TextView
-                    android:id="@+id/tanBTN"
-                    style="@style/AdvancedButton"
-                    android:onClick="tanBTN"
-                    android:text="@string/tan" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/cosBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="cosBTN"
+                        android:text="@string/cos" />
 
+                    <TextView
+                        android:id="@+id/tanBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="tanBTN"
+                        android:text="@string/tan" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/advancedThirdRow"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/trigonometricInverted"
+                    android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/absBTN"
-                    style="@style/AdvancedButton"
-                    android:onClick="absBTN"
-                    android:text="@string/abs" />
+                    <TextView
+                        android:id="@+id/invInvertedBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="invInvertedBTN"
+                        android:text="@string/inv" />
 
-                <TextView
-                    android:id="@+id/eBTN"
-                    style="@style/AdvancedButton"
-                    android:onClick="eBTN"
-                    android:text="@string/e" />
+                    <TextView
+                        android:id="@+id/arcSinBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="arcSinBTN"
+                        android:text="@string/arcSin" />
 
-                <TextView
-                    android:id="@+id/lnBTN"
-                    style="@style/AdvancedButton"
-                    android:onClick="lnBTN"
-                    android:text="@string/ln" />
+                    <TextView
+                        android:id="@+id/arcCosBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="arcCosBTN"
+                        android:text="@string/arcCos" />
 
-                <TextView
-                    android:id="@+id/logBTN"
-                    style="@style/AdvancedButton"
-                    android:onClick="logBTN"
-                    android:text="@string/log" />
+                    <TextView
+                        android:id="@+id/arcTanBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="arcTanBTN"
+                        android:text="@string/arcTan" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/absBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="absBTN"
+                        android:text="@string/abs" />
+
+                    <TextView
+                        android:id="@+id/eBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="eBTN"
+                        android:text="@string/e" />
+
+                    <TextView
+                        android:id="@+id/lnBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="lnBTN"
+                        android:text="@string/ln" />
+
+                    <TextView
+                        android:id="@+id/logBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="logBTN"
+                        android:text="@string/log" />
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -159,12 +199,14 @@
             android:id="@+id/arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="20dp"
+            android:scaleX="1.8"
+            android:onClick="calcToggle"
             android:text="@string/arrow_up"
             android:textColor="?attr/colorPrimary"
-            android:textSize="20sp"
-            android:scaleX="1.8"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -172,8 +214,8 @@
         android:id="@+id/calcMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="4dp">
+        android:layout_margin="4dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"

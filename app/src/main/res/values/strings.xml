@@ -35,6 +35,10 @@
     <string name="sin">sin</string>
     <string name="cos">cos</string>
     <string name="tan">tan</string>
+    <string name="arcSin">sin\u207B\u00B9</string>
+    <string name="arcCos">cos\u207B\u00B9</string>
+    <string name="arcTan">tan\u207B\u00B9</string>
+
     <string name="ln">ln</string>
     <string name="log">log</string>
     <string name="squareRoot">√</string>
