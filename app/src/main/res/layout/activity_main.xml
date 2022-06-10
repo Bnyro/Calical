@@ -53,113 +53,114 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp" >
 
-        <TableLayout
+        <LinearLayout
             android:id="@+id/calcAdvanced"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_weight="90"
             android:layout_marginEnd="10dp">
 
-            <TableRow
+            <LinearLayout
                 android:id="@+id/advancedFirstRow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
+                <TextView
                     android:id="@+id/squareRootBTN"
                     style="@style/AdvancedButton"
                     android:onClick="squareRootBTN"
                     android:text="@string/squareRoot" />
 
-                <Button
+                <TextView
                     android:id="@+id/piBTN"
                     style="@style/AdvancedButton"
                     android:onClick="piBTN"
                     android:text="@string/pi" />
 
-                <Button
+                <TextView
                     android:id="@+id/exponentBTN"
                     style="@style/AdvancedButton"
                     android:onClick="exponentBTN"
                     android:text="@string/exponent" />
 
-                <Button
+                <TextView
                     android:id="@+id/facultyBTN"
                     style="@style/AdvancedButton"
                     android:onClick="facultyBTN"
                     android:text="@string/faculty" />
 
-            </TableRow>
+            </LinearLayout>
 
-            <TableRow
+            <LinearLayout
                 android:id="@+id/advancedSecondRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <Button
+                <TextView
                     android:id="@+id/invBTN"
                     style="@style/AdvancedButton"
                     android:onClick="invBTN"
                     android:text="@string/inv" />
 
-                <Button
+                <TextView
                     android:id="@+id/sinBTN"
                     style="@style/AdvancedButton"
                     android:onClick="sinBTN"
                     android:text="@string/sin" />
 
-                <Button
+                <TextView
                     android:id="@+id/cosBTN"
                     style="@style/AdvancedButton"
                     android:onClick="cosBTN"
                     android:text="@string/cos" />
 
-                <Button
+                <TextView
                     android:id="@+id/tanBTN"
                     style="@style/AdvancedButton"
                     android:onClick="tanBTN"
                     android:text="@string/tan" />
-            </TableRow>
+            </LinearLayout>
 
 
-            <TableRow
+            <LinearLayout
                 android:id="@+id/advancedThirdRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <Button
+                <TextView
                     android:id="@+id/absBTN"
                     style="@style/AdvancedButton"
                     android:onClick="absBTN"
                     android:text="@string/abs" />
 
-                <Button
+                <TextView
                     android:id="@+id/eBTN"
                     style="@style/AdvancedButton"
                     android:onClick="eBTN"
                     android:text="@string/e" />
 
-                <Button
+                <TextView
                     android:id="@+id/lnBTN"
                     style="@style/AdvancedButton"
                     android:onClick="lnBTN"
                     android:text="@string/ln" />
 
-                <Button
+                <TextView
                     android:id="@+id/logBTN"
                     style="@style/AdvancedButton"
                     android:onClick="logBTN"
                     android:text="@string/log" />
-            </TableRow>
+            </LinearLayout>
 
-        </TableLayout>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="3dp"
             android:text="@string/arrow_up"
             android:textColor="?attr/colorPrimary"
             android:textSize="20sp"
@@ -167,13 +168,14 @@
 
     </LinearLayout>
 
-    <TableLayout
+    <LinearLayout
         android:id="@+id/calcMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_margin="4dp">
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -201,9 +203,9 @@
                 android:onClick="clearBTN"
                 android:text="@string/clear" />
 
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -231,9 +233,9 @@
                 android:onClick="divideBTN"
                 android:text="@string/divide" />
 
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -261,9 +263,9 @@
                 android:onClick="multiplyBTN"
                 android:text="@string/multiply" />
 
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -291,9 +293,9 @@
                 android:onClick="subtractBTN"
                 android:text="@string/subtract" />
 
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -320,7 +322,7 @@
                 style="@style/OuterButton"
                 android:onClick="addBTN"
                 android:text="@string/add" />
-        </TableRow>
-    </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
