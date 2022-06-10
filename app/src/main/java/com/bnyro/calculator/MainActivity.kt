@@ -3,6 +3,10 @@ package com.bnyro.calculator
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bnyro.calculator.databinding.ActivityMainBinding
@@ -19,9 +23,52 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val rotate = RotateAnimation(
+            0F,
+            180F,
+            Animation.RELATIVE_TO_SELF,
+            0.5f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f
+        )
+        rotate.apply {
+            duration = 600
+            fillAfter = true
+            interpolator = LinearInterpolator()
+        }
+
+        val rotateReverse = RotateAnimation(
+            180F,
+            360F,
+            Animation.RELATIVE_TO_SELF,
+            0.5f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f
+        )
+        rotateReverse.apply {
+            duration = 600
+            fillAfter = true
+            interpolator = LinearInterpolator()
+        }
+
+        val animSlideDown = AnimationUtils.loadAnimation(
+            applicationContext, R.anim.slide_down
+        )
+
+        val animSlideUp = AnimationUtils.loadAnimation(
+            applicationContext, R.anim.slide_up
+        )
+
         binding.arrow.setOnClickListener { _ ->
-            binding.advancedSecondRow.visibility = View.VISIBLE
-            binding.advancedThirdRow.visibility = View.VISIBLE
+            if (binding.advancedSecondRow.visibility == View.GONE) {
+                binding.advancedSecondRow.visibility = View.VISIBLE
+                binding.advancedThirdRow.visibility = View.VISIBLE
+                binding.arrow.startAnimation(rotate)
+            } else {
+                binding.advancedSecondRow.visibility = View.GONE
+                binding.advancedThirdRow.visibility = View.GONE
+                binding.arrow.startAnimation(rotateReverse)
+            }
         }
 
         binding.input.showSoftInputOnFocus = false

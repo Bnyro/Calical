@@ -3,7 +3,7 @@
     <string name="app_name">Calculator</string>
 
     <string name="invalid_input">Invalid input</string>
-    <string name="arrow_down">⌄</string>
+    <string name="arrow_up">⌃</string>
 
     <string name="zero">0</string>
     <string name="one">1</string>
