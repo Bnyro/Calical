@@ -3,19 +3,16 @@ package com.bnyro.calculator
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bnyro.calculator.databinding.ActivityMainBinding
 import com.google.android.material.color.DynamicColors
-import java.text.DecimalFormat
 import org.mariuszgromada.math.mxparser.Expression
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val maxLength = 10
 
     override fun onCreate(savedInstanceState: Bundle?) {
         DynamicColors.applyToActivityIfAvailable(this)
@@ -34,12 +31,12 @@ class MainActivity : AppCompatActivity() {
         binding.input.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr))
         binding.input.setSelection(cursorPos + strToAdd.length)
         val resultString = getResult()
-        if (resultString != "NaN") binding.result.text = resultString
+        if (resultString != "NAN") binding.result.text = resultString
     }
 
     fun equalsBTN(view: View?) {
         val resultString = getResult()
-        if (resultString != "NaN") {
+        if (resultString != "NAN") {
             binding.input.setText(resultString)
             binding.input.setSelection(resultString.length)
             binding.result.text = ""
@@ -67,37 +64,11 @@ class MainActivity : AppCompatActivity() {
 
     fun calcToggle(view: View?) {
         if (binding.calcToggle.visibility == View.GONE) {
-            val rotate = RotateAnimation(
-                0F,
-                180F,
-                Animation.RELATIVE_TO_SELF,
-                0.5f,
-                Animation.RELATIVE_TO_SELF,
-                0.5f
-            )
-            rotate.apply {
-                duration = 200
-                fillAfter = true
-                interpolator = LinearInterpolator()
-            }
             binding.calcToggle.visibility = View.VISIBLE
-            binding.arrow.startAnimation(rotate)
+            binding.arrow.animate().setDuration(200).rotationX(180f).start()
         } else {
-            val rotateReverse = RotateAnimation(
-                180F,
-                360F,
-                Animation.RELATIVE_TO_SELF,
-                0.5f,
-                Animation.RELATIVE_TO_SELF,
-                0.5f
-            )
-            rotateReverse.apply {
-                duration = 200
-                fillAfter = true
-                interpolator = LinearInterpolator()
-            }
             binding.calcToggle.visibility = View.GONE
-            binding.arrow.startAnimation(rotateReverse)
+            binding.arrow.animate().setDuration(300).rotationX(0f).start()
         }
     }
 
@@ -105,16 +76,20 @@ class MainActivity : AppCompatActivity() {
         val userExp = binding.input.text.toString()
         val exp = Expression(userExp)
         val resultTemp: Double = exp.calculate()
-        val result = roundTwoDecimals(resultTemp)
-        var resultString = result.toString()
-        if (resultString.endsWith(".0")) resultString =
-            resultString.substring(0, resultString.length - 2)
-        return resultString
+        return formatNum(resultTemp)
     }
 
-    private fun roundTwoDecimals(d: Double): Double {
-        val twoDForm = DecimalFormat("#.#####")
-        return java.lang.Double.valueOf(twoDForm.format(d))
+    private fun formatNum(number: Double): String {
+        var out = ""
+        for (i in 0 until maxLength) {
+            out = String.format("%." + i + "G", number)
+            if (out.length == maxLength) {
+                while (out.endsWith("0")) out = out.substring(0, out.length - 1)
+                if (out.endsWith(".")) out = out.substring(0, out.length - 1)
+                return out
+            }
+        }
+        return out
     }
 
     fun clearBTN(view: View?) {

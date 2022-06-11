@@ -195,18 +195,16 @@
 
         </LinearLayout>
 
-        <TextView
+        <ImageView
             android:id="@+id/arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="20dp"
-            android:scaleX="1.8"
+            style="@style/roundedImageView"
             android:onClick="calcToggle"
-            android:text="@string/arrow_up"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="16sp" />
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/ic_arrow_down" />
 
     </LinearLayout>
 
