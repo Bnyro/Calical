@@ -10,7 +10,7 @@ The only well-known calculator using Material You is currently the Google calcul
 - [x] Dark and light theme
 - [x] Lightweight and fast
 - [x] Support for complex functions
-- [x] No permissons needed
+- [x] No permissions needed
 - [x] No ads
 
 ## Preview

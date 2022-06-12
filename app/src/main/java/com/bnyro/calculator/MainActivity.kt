@@ -21,13 +21,13 @@ class MainActivity : AppCompatActivity() {
         binding.input.showSoftInputOnFocus = false
     }
 
-    private fun updateText(strToAdd: String) {
+    private fun updateText(calculatorArgument: CalculatorArgument) {
         val oldStr = binding.input.text.toString()
         val cursorPos = binding.input.selectionStart
         val leftStr = oldStr.substring(0, cursorPos)
         val rightStr = oldStr.substring(cursorPos)
-        binding.input.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr))
-        binding.input.setSelection(cursorPos + strToAdd.length)
+        binding.input.setText(String.format("%s%s%s", leftStr, calculatorArgument.stringValue, rightStr))
+        binding.input.setSelection(cursorPos + calculatorArgument.stringValue.length)
         val resultString = getResult(binding.input.text.toString())
         if (resultString != "NAN") binding.result.text = resultString
     }
@@ -77,141 +77,141 @@ class MainActivity : AppCompatActivity() {
 
     // default buttons
     fun zeroBTN(view: View?) {
-        updateText("0")
+        updateText(CalculatorArgument.Zero)
     }
 
     fun oneBTN(view: View?) {
-        updateText("1")
+        updateText(CalculatorArgument.One)
     }
 
     fun twoBTN(view: View?) {
-        updateText("2")
+        updateText(CalculatorArgument.Two)
     }
 
     fun threeBTN(view: View?) {
-        updateText("3")
+        updateText(CalculatorArgument.Three)
     }
 
     fun fourBTN(view: View?) {
-        updateText("4")
+        updateText(CalculatorArgument.Four)
     }
 
     fun fiveBTN(view: View?) {
-        updateText("5")
+        updateText(CalculatorArgument.Five)
     }
 
     fun sixBTN(view: View?) {
-        updateText("6")
+        updateText(CalculatorArgument.Six)
     }
 
     fun sevenBTN(view: View?) {
-        updateText("7")
+        updateText(CalculatorArgument.Seven)
     }
 
     fun eightBTN(view: View?) {
-        updateText("8")
+        updateText(CalculatorArgument.Eight)
     }
 
     fun nineBTN(view: View?) {
-        updateText("9")
+        updateText(CalculatorArgument.Nine)
     }
 
     fun squareRootBTN(view: View?) {
-        updateText("sqrt(")
+        updateText(CalculatorArgument.SquareRoot)
     }
 
     fun exponentBTN(view: View?) {
-        updateText("^")
+        updateText(CalculatorArgument.Exponent)
     }
 
     fun divideBTN(view: View?) {
-        updateText("/")
+        updateText(CalculatorArgument.Divide)
     }
 
     fun multiplyBTN(view: View?) {
-        updateText("*")
+        updateText(CalculatorArgument.Multiply)
     }
 
     fun addBTN(view: View?) {
-        updateText("+")
+        updateText(CalculatorArgument.Add)
     }
 
     fun subtractBTN(view: View?) {
-        updateText("-")
+        updateText(CalculatorArgument.Subtract)
     }
 
     fun pointBTN(view: View?) {
-        updateText(".")
+        updateText(CalculatorArgument.DecimalPoint)
     }
 
     fun percentBTN(view: View?) {
-        updateText("%")
+        updateText(CalculatorArgument.Percent)
     }
 
     // advanced buttons
     fun parBTN(view: View?) {
         val currentInput = binding.input.text.toString()
         if (countChar(currentInput, "(".first()) > countChar(currentInput, ")".first())) {
-            updateText(")")
+            updateText(CalculatorArgument.ParClosed)
         } else {
-            updateText("(")
+            updateText(CalculatorArgument.ParOpen)
         }
     }
 
     fun parOpenBTN(view: View?) {
-        updateText("(")
+        updateText(CalculatorArgument.ParOpen)
     }
 
     fun parClosedBTN(view: View?) {
-        updateText(")")
+        updateText(CalculatorArgument.ParClosed)
     }
 
     fun sinBTN(view: View?) {
-        updateText("sin(")
+        updateText(CalculatorArgument.Sin)
     }
 
     fun cosBTN(view: View?) {
-        updateText("cos(")
+        updateText(CalculatorArgument.Cos)
     }
 
     fun tanBTN(view: View?) {
-        updateText("tan(")
+        updateText(CalculatorArgument.Tan)
     }
 
     fun arcSinBTN(view: View?) {
-        updateText("arcsin(")
+        updateText(CalculatorArgument.ArcSin)
     }
 
     fun arcCosBTN(view: View?) {
-        updateText("arccos(")
+        updateText(CalculatorArgument.ArcCos)
     }
 
     fun arcTanBTN(view: View?) {
-        updateText("arctan(")
+        updateText(CalculatorArgument.ArcTan)
     }
 
     fun logBTN(view: View?) {
-        updateText("log10(")
+        updateText(CalculatorArgument.LogBaseTen)
     }
 
     fun lnBTN(view: View?) {
-        updateText("ln(")
+        updateText(CalculatorArgument.LogBaseE)
     }
 
     fun eBTN(view: View?) {
-        updateText("e")
+        updateText(CalculatorArgument.EConstant)
     }
 
     fun piBTN(view: View?) {
-        updateText("pi")
+        updateText(CalculatorArgument.PIConstant)
     }
 
     fun facultyBTN(view: View?) {
-        updateText("!")
+        updateText(CalculatorArgument.Factorial)
     }
 
     fun absBTN(view: View?) {
-        updateText("abs(")
+        updateText(CalculatorArgument.Absolute)
     }
 
     fun invBTN(view: View?) {
