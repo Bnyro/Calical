@@ -38,5 +38,6 @@ enum class CalculatorArgument(val stringValue: String) {
     EConstant("e"),
     PIConstant("pi"),
     Factorial("!"),
-    Absolute("abs(")
+    Absolute("abs("),
+    Modulus("#")
 }
