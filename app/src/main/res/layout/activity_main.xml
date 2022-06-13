@@ -129,6 +129,12 @@
                         style="@style/AdvancedButton"
                         android:onClick="tanBTN"
                         android:text="@string/tan" />
+
+                    <TextView
+                        android:id="@+id/modBTN"
+                        style="@style/AdvancedButton"
+                        android:onClick="modBTN"
+                        android:text="@string/mod" />
                 </LinearLayout>
 
                 <LinearLayout

@@ -148,6 +148,10 @@ class MainActivity : AppCompatActivity() {
         updateText(CalculatorArgument.Percent)
     }
 
+    fun modBTN(view: View?) {
+        updateText(CalculatorArgument.Modulus)
+    }
+
     // advanced buttons
     fun parBTN(view: View?) {
         val currentInput = binding.input.text.toString()
