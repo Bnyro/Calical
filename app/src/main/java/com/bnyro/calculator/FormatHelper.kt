@@ -1,10 +1,7 @@
 package com.bnyro.calculator
 
-import org.mariuszgromada.math.mxparser.Expression
-
 fun getResult(userExp: String): String {
-    val exp = Expression(userExp)
-    val resultTemp: Double = exp.calculate()
+    val resultTemp = MathParser.eval(userExp)
     return formatNum(resultTemp, 10)
 }
 
