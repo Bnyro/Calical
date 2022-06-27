@@ -1,6 +1,15 @@
 package com.bnyro.calculator
 
-import kotlin.math.*
+import kotlin.math.abs
+import kotlin.math.acos
+import kotlin.math.asin
+import kotlin.math.atan
+import kotlin.math.cos
+import kotlin.math.ln
+import kotlin.math.pow
+import kotlin.math.sin
+import kotlin.math.sqrt
+import kotlin.math.tan
 
 object MathParser {
     fun eval(str: String): Double {
@@ -76,16 +85,16 @@ object MathParser {
                             "asin" -> asin(x)
                             "acos" -> acos(x)
                             "atan" -> atan(x)
+                            "ln" -> ln(x)
                             else -> return Double.NaN
                         }
                 } else {
                     return Double.NaN
                 }
                 try {
-                    if (eat('π'.code)) x = Math.PI
-                    else if (eat('^'.code)) x = x.pow(parseFactor()) // exponentiation
+                    if (eat('^'.code)) x = x.pow(parseFactor()) // exponentiation
                     else if (eat('%'.code)) x /= 100 // percentage
-                    else if (eat('!'.code)) x = factorial(x.toInt())
+                    else if (eat('!'.code)) x = factorial(x.toInt()) // factorial
                 } catch (e: Exception) {
                     return Double.NaN
                 }

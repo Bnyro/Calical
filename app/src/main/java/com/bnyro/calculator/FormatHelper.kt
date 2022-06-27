@@ -1,7 +1,10 @@
 package com.bnyro.calculator
 
 fun getResult(userExp: String): String {
-    val resultTemp = MathParser.eval(userExp)
+    val exp = userExp
+        .replace("π", Math.PI.toString())
+        .replace("e", Math.E.toString())
+    val resultTemp = MathParser.eval(exp)
     return formatNum(resultTemp, 10)
 }
 
