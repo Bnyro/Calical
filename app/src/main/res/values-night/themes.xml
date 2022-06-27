@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Calculator" parent="Theme.Material3.Dark.NoActionBar">
+    <style name="Theme.Calical" parent="Theme.Material3.Dark.NoActionBar">
 
         <item name="android:statusBarColor" tools:targetApi="m">?attr/colorSecondaryContainer</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>

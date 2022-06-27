@@ -1,4 +1,4 @@
-package com.bnyro.calculator
+package com.bnyro.calical
 
 import kotlin.math.abs
 import kotlin.math.acos

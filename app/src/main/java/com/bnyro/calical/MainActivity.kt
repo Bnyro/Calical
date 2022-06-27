@@ -1,11 +1,11 @@
-package com.bnyro.calculator
+package com.bnyro.calical
 
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.bnyro.calculator.databinding.ActivityMainBinding
+import com.bnyro.calical.databinding.ActivityMainBinding
 import com.google.android.material.color.DynamicColors
 
 class MainActivity : AppCompatActivity() {

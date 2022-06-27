@@ -1,4 +1,4 @@
-package com.bnyro.calculator
+package com.bnyro.calical
 
 /*
 I created this as a central place for storing all of the calculator arguments as a better design practice.

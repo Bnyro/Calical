@@ -1,4 +1,4 @@
-package com.bnyro.calculator
+package com.bnyro.calical
 
 fun getResult(userExp: String): String {
     val exp = userExp
