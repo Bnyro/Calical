@@ -1,4 +1,4 @@
-# Calculator
+# Calical
 An open source calculator for Android using Material You.
 
 ## Why
