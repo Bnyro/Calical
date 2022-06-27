@@ -194,10 +194,6 @@ class MainActivity : AppCompatActivity() {
         updateText(CalculatorArgument.ArcTan)
     }
 
-    fun logBTN(view: View?) {
-        updateText(CalculatorArgument.LogBaseTen)
-    }
-
     fun lnBTN(view: View?) {
         updateText(CalculatorArgument.LogBaseE)
     }

@@ -41,6 +41,7 @@ object MathParser {
                 while (true) {
                     if (eat('*'.code)) x *= parseFactor() // multiplication
                     else if (eat('/'.code)) x /= parseFactor() // division
+                    else if (eat('#'.code)) x %= parseFactor()
                     else return x
                 }
             }

@@ -33,7 +33,6 @@ enum class CalculatorArgument(val stringValue: String) {
     ArcSin("asin("),
     ArcCos("acos("),
     ArcTan("atan("),
-    LogBaseTen("log10("),
     LogBaseE("ln("),
     EConstant("e"),
     PIConstant("π"),

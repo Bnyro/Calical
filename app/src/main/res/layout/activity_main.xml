@@ -184,12 +184,6 @@
                         style="@style/AdvancedButton"
                         android:onClick="lnBTN"
                         android:text="@string/ln" />
-
-                    <TextView
-                        android:id="@+id/logBTN"
-                        style="@style/AdvancedButton"
-                        android:onClick="logBTN"
-                        android:text="@string/log" />
                     
                     <TextView
                         android:id="@+id/modBTN"
